@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #0b0b0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    overscroll-behavior: none;
+}
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.screen {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#connectScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+}
+
+.card {
+    width: min(420px, 100%);
+    padding: 32px 24px;
+    border-radius: 24px;
+    background: #15151c;
+    border: 1px solid #292933;
+    text-align: center;
+}
+
+.logo {
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+p {
+    margin: 0 0 24px;
+    color: #92929e;
+}
+
+input {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #33333e;
+    border-radius: 14px;
+    outline: none;
+    padding: 0 16px;
+    background: #0e0e13;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #6d6df5;
+}
+
+button {
+    width: 100%;
+    height: 52px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 14px;
+    background: #6366f1;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.secondaryButton {
+    margin-top: 10px;
+    background: #24242e;
+    color: #c8c8d3;
+    border: 1px solid #363642;
+}
+
+.savedIps {
+    margin-top: 24px;
+    text-align: left;
+}
+
+.sectionTitle,
+.eyebrow {
+    color: #777783;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.sectionTitle {
+    margin-bottom: 8px;
+}
+
+.savedIpRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.savedIpButton,
+.removeIpButton,
+.iconButton {
+    margin: 0;
+    border: 1px solid #33333e;
+    background: #1d1d26;
+    color: #e7e7ee;
+}
+
+.savedIpButton {
+    flex: 1;
+    height: 44px;
+    text-align: left;
+    padding: 0 14px;
+    font-size: 15px;
+}
+
+.removeIpButton,
+.iconButton {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 22px;
+}
+
+.settingsPanel {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    -webkit-overflow-scrolling: touch;
+    background: rgba(5, 5, 8, 0.82);
+}
+
+.settingsCard {
+    flex: 0 0 auto;
+    margin-block: auto;
+    text-align: left;
+}
+
+.settingsHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin: 6px 0 0;
+    font-size: 25px;
+}
+
+.settingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid #292933;
+    cursor: pointer;
+}
+
+.settingRow strong,
+.settingRow small {
+    display: block;
+}
+
+.settingRow strong {
+    font-size: 16px;
+}
+
+.settingRow small {
+    margin-top: 5px;
+    color: #92929e;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.settingRow input {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    accent-color: #6366f1;
+}
+
+.settingSensitivityRow {
+    gap: 12px;
+}
+
+.settingSensitivityRow input[type="number"] {
+    width: 76px;
+    height: 44px;
+    padding: 0 8px;
+    border: 1px solid #454550;
+    border-radius: 6px;
+    background: #1b1b22;
+    color: #f2f2f5;
+    text-align: center;
+}
+
+.sensitivityControl {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.sensitivityControl output {
+    min-width: 32px;
+    color: #c8c8d3;
+    font-size: 13px;
+    text-align: right;
+}
+
+.settingStatus {
+    color: #e3a84b;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.status {
+    margin-top: 18px;
+    color: #777783;
+    font-size: 14px;
+}
+
+#trackpadScreen {
+    position: fixed;
+    inset: 0;
+}
+
+#trackpad {
+    position: absolute;
+    inset: 0;
+    touch-action: none;
+    overscroll-behavior: none;
+    z-index: 1; /* Altta */
+}
+
+.trackpadInfo {
+    position: absolute;
+    z-index: 20;
+    top: max(18px, env(safe-area-inset-top));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(25, 25, 32, 0.85);
+    color: #bdbdc8;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+
+
+.keyboardPanel {
+    position: fixed;
+    z-index: 5;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom));
+    background: rgba(21, 21, 28, 0.97);
+    border-top: 1px solid #363642;
+}
+
+.keyboardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #bdbdc8;
+    font-size: 13px;
+}
+
+.closeKeyboardButton {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #bdbdc8;
+    font-size: 24px;
+}
+
+#keyboardInput {
+    height: 46px;
+    text-align: left;
+}
+
+#connectionIndicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #35d07f;
+}
+
+.trackpadHint {
+    position: absolute;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    color: #44444e;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.returnButton {
+    position: absolute;
+    z-index: 20;
+    top: max(18px, env(safe-area-inset-top));
+    left: 18px;
+    width: auto;
+    height: 44px;
+    margin: 0;
+    padding: 0 14px;
+    border: 1px solid #363642;
+    border-radius: 12px;
+    background: rgba(25, 25, 32, 0.9);
+    color: #e7e7ee;
+    font-size: 14px;
+}
+
+.keyboardButton {
+    position: absolute;
+    z-index: 20;
+    top: max(18px, env(safe-area-inset-top));
+    right: 18px;
+    width: auto;
+    height: 44px;
+    margin: 0;
+    padding: 0 14px;
+    border: 1px solid #363642;
+    border-radius: 12px;
+    background: rgba(25, 25, 32, 0.9);
+    color: #e7e7ee;
+    font-size: 14px;
+}
+
+#scrollZone {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Dikeyde tam merkeze alır */
+    right: 16px; /* Kenardan başparmak payı bırakır */
+    width: 48px; /* Dokunma alanını ideal yapar */
+    height: 50%; /* Ekranın yarısı */
+    background: rgba(99, 102, 241, 0.15);
+    border: 2px solid rgba(99, 102, 241, 0.5);
+    border-radius: 24px; /* Yuvarlak, progress bar görünümü */
+    touch-action: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.scrollZoneIndicator {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Trackpad'in sağında scroll zone olduğu için hint'i biraz sola kaydır */
+.trackpadHint {
+    position: absolute;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    text-align: right;
+    z-index: 5;
+    right: 100px; /* Scroll zone'un genişliği + boşluk */
+    left: auto;
+    transform: none;
+}
+
+@media (max-width: 360px) {
+    .trackpadInfo {
+        top: calc(max(18px, env(safe-area-inset-top)) + 52px);
+    }
+}

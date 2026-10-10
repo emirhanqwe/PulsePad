@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0b0b0f">
+    <link rel="icon" href="../ikon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css?v=4">
+    <title>Phone Mouse</title>
+</head>
+<body>
+    <div id="connectScreen" class="screen">
+        <div class="card">
+            <div class="logo">🖱️</div>
+            <h1>PulsePad</h1>
+            <p>Bilgisayarın IP adresini gir</p>
+            <input type="text" id="ipInput" placeholder="192.168.1.100" autocomplete="off">
+            <button id="connectButton">Bağlan</button>
+            <div id="savedIps" class="savedIps hidden">
+                <div class="sectionTitle">Kayıtlı bilgisayarlar</div>
+                <div id="savedIpList"></div>
+            </div>
+            <button id="settingsButton" class="secondaryButton">⚙ Ayarlar</button>
+            <div id="status" class="status">Hazır</div>
+        </div>
+    </div>
 
+    <div id="settingsPanel" class="settingsPanel hidden">
+        <div class="card settingsCard">
+            <div class="settingsHeader">
+                <div>
+                    <div class="eyebrow">Tercihler</div>
+                    <h2>Ayarlar</h2>
+                </div>
+                <button id="closeSettingsButton" class="iconButton" aria-label="Ayarları kapat">×</button>
+            </div>
+            <label class="settingRow" for="keepScreenAwake">
+                <span>
+                    <strong>Ekranı açık tut</strong>
+                    <small>Bağlıyken telefonun uykuya geçmesini engeller.</small>
+                </span>
+                <input type="checkbox" id="keepScreenAwake" checked>
+            </label>
+            <label class="settingRow settingSensitivityRow" for="mouseSensitivity">
+                <span>
+                    <strong>Mouse Sensitivity</strong>
+                    <small>İşaretçinin hareket hızını ayarlayın.</small>
+                </span>
+                <span class="sensitivityControl">
+                    <input type="number" id="mouseSensitivity" min="0.5" max="5" step="0.1" inputmode="decimal">
+                    <output id="mouseSensitivityValue" for="mouseSensitivity"></output>
+                </span>
+            </label>
+            <label class="settingRow settingSensitivityRow" for="scrollSensitivity">
+                <span>
+                    <strong>Scroll Sensitivity</strong>
+                    <small>Kaydırma hızını ayarlayın.</small>
+                </span>
+                <span class="sensitivityControl">
+                    <!-- step="1" ile sadece tam sayı artışı sağlıyoruz -->
+                    <input type="number" id="scrollSensitivity" min="1" max="10" step="1" inputmode="numeric">
+                    <output id="scrollSensitivityValue" for="scrollSensitivity"></output>
+                </span>
+            </label>
+            <div id="wakeLockStatus" class="settingStatus"></div>
+        </div>
+    </div>
+
+    <!-- Trackpad Ekranı -->
+	<div id="trackpadScreen" class="screen hidden">
+    		<div id="trackpad"></div>
+    
+    <!-- Scroll Zone - Trackpad'in üzerinde ama en üst katmanda -->
+    		<div id="scrollZone">
+        		<div class="scrollZoneIndicator">↕ Scroll</div>
+    		</div>
+    
+    		<div class="trackpadInfo">
+        		<div id="connectionIndicator"></div>
+        		<span>Bağlı</span>
+    		</div>
+    		<button id="returnButton" class="returnButton">↩ Geri dön</button>
+    		<button id="keyboardButton" class="keyboardButton">⌨ Klavye</button>
+    		<div class="trackpadHint">
+        		<span>Tek dokun: Sol tık</span>
+        		<span>Çift dokun: Sürükle</span>
+        		<span>Uzun bas: Sağ tık</span>
+        		<span style="color: #6d6df5;">Sağ şerit: Scroll</span>
+        		<span>2 parmak: Zoom</span>
+    		</div>
+	</div>
+
+    <div id="keyboardPanel" class="keyboardPanel hidden">
+        <div class="keyboardHeader">
+            <span>Bilgisayar klavyesi</span>
+            <button id="closeKeyboardButton" class="closeKeyboardButton" aria-label="Telefon klavyesini kapat">×</button>
+        </div>
+        <input
+            id="keyboardInput"
+            type="text"
+            autocomplete="off"
+            autocapitalize="sentences"
+            spellcheck="false"
+            placeholder="Yazmaya başlayın..."
+        >
+    </div>
+
+    <script src="app.js?v=5"></script>
+</body>
+</html>
